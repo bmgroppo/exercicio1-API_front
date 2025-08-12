@@ -1,0 +1,25 @@
+<div class="container">
+    <h1>Gerenciar Jogos</h1>
+    <input [(ngModel)]="novoJogo.nome" placeholder="Nome">
+    <input [(ngModel)]="novoJogo.tipo" placeholder="Tipo">
+    <input [(ngModel)]="novoJogo.ano" placeholder="Ano">
+    <button (click)="adicionar()">{{jogoEditando ? 'Atualizar' : 'Adicionar'}}</button>
+
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Tipo</th>
+            <th>Ano</th>
+            <th>Ações</th>
+        </tr>
+        <tr *ngFor="let jogos of jogos">
+            <td>{{jogos.nome}}</td>
+            <td>{{jogos.tipo}}</td>
+            <td>{{jogos.ano}}</td>
+            <td>
+                <button (click)="editar(jogos)">Editar</button>
+                <button (click)="deletar(jogos.id!)">Excluir</button>
+            </td>
+        </tr>
+    </table>
+</div>
